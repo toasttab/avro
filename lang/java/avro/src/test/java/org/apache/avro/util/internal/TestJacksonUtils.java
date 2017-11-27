@@ -18,18 +18,12 @@
 package org.apache.avro.util.internal;
 
 import java.util.Collections;
+
+import com.fasterxml.jackson.databind.node.*;
 import org.apache.avro.JsonProperties;
 import org.apache.avro.Schema;
 import org.apache.avro.SchemaBuilder;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.BooleanNode;
-import org.codehaus.jackson.node.DoubleNode;
-import org.codehaus.jackson.node.IntNode;
-import org.codehaus.jackson.node.JsonNodeFactory;
-import org.codehaus.jackson.node.LongNode;
-import org.codehaus.jackson.node.NullNode;
-import org.codehaus.jackson.node.ObjectNode;
-import org.codehaus.jackson.node.TextNode;
+
 import org.junit.Test;
 
 import static org.apache.avro.util.internal.JacksonUtils.toJsonNode;

@@ -25,13 +25,14 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.TokenBuffer;
 import org.apache.avro.AvroRuntimeException;
 import org.apache.avro.JsonProperties;
 import org.apache.avro.Schema;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.util.TokenBuffer;
 
 public class JacksonUtils {
   static final String BYTES_CHARSET = "ISO-8859-1";
@@ -123,7 +124,7 @@ public class JacksonUtils {
       } else if (schema.getType().equals(Schema.Type.BYTES)
               || schema.getType().equals(Schema.Type.FIXED)) {
         try {
-          return jsonNode.getTextValue().getBytes(BYTES_CHARSET);
+          return jsonNode.textValue().getBytes(BYTES_CHARSET);
         } catch (UnsupportedEncodingException e) {
           throw new AvroRuntimeException(e);
         }
@@ -136,7 +137,7 @@ public class JacksonUtils {
       return l;
     } else if (jsonNode.isObject()) {
       Map m = new LinkedHashMap();
-      for (Iterator<String> it = jsonNode.getFieldNames(); it.hasNext(); ) {
+      for (Iterator<String> it = jsonNode.fieldNames(); it.hasNext(); ) {
         String key = it.next();
         Schema s = null;
         if (schema == null) {

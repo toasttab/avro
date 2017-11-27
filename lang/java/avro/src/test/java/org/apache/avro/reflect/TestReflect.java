@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.fasterxml.jackson.databind.node.NullNode;
 import org.apache.avro.AvroRuntimeException;
 import org.apache.avro.AvroTypeException;
 import org.apache.avro.Protocol;
@@ -47,7 +48,6 @@ import org.apache.avro.io.DecoderFactory;
 import org.apache.avro.io.Encoder;
 import org.apache.avro.io.EncoderFactory;
 import org.apache.avro.reflect.TestReflect.SampleRecord.AnotherSampleRecord;
-import org.codehaus.jackson.node.NullNode;
 import org.junit.Test;
 
 public class TestReflect {
