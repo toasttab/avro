@@ -92,33 +92,17 @@
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.4.1</version>
+        <artifactId>maven-jar-plugin</artifactId>
         <executions>
           <execution>
-            <id>enforce-banned-dependencies</id>
             <goals>
-              <goal>enforce</goal>
+              <goal>test-jar</goal>
             </goals>
-            <configuration>
-              <rules>
-                <bannedDependencies>
-                  <!-- Ban all versions of Guava other than 11.0.2 that Hadoop uses -->
-                  <excludes>
-                    <exclude>com.google.guava:guava</exclude>
-                  </excludes>
-                  <includes>
-                    <include>com.google.guava:guava:11.0.2</include>
-                  </includes>
-                </bannedDependencies>
-              </rules>
-              <fail>true</fail>
-            </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
-  </build>
+   </build>
 
   <dependencies>
     <dependency>
@@ -152,17 +136,18 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-core-asl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
     </dependency>
     <dependency>
       <groupId>commons-codec</groupId>
       <artifactId>commons-codec</artifactId>
       <version>${commons-codec.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.thoughtworks.paranamer</groupId>
+      <artifactId>paranamer</artifactId>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
