@@ -44,7 +44,7 @@ public class TestJacksonUtils {
     assertEquals(BooleanNode.TRUE, toJsonNode(true));
     assertEquals(IntNode.valueOf(1), toJsonNode(1));
     assertEquals(LongNode.valueOf(2), toJsonNode(2L));
-    assertEquals(DoubleNode.valueOf(1.0), toJsonNode(1.0f));
+    assertEquals(FloatNode.valueOf(1.0f), toJsonNode(1.0f));
     assertEquals(DoubleNode.valueOf(2.0), toJsonNode(2.0));
     assertEquals(TextNode.valueOf("\u0001\u0002"), toJsonNode(new byte[] { 1, 2 }));
     assertEquals(TextNode.valueOf("a"), toJsonNode("a"));

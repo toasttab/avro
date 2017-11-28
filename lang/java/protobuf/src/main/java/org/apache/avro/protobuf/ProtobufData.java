@@ -27,6 +27,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.io.IOException;
 import java.io.File;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import org.apache.avro.Schema;
 import org.apache.avro.Schema.Field;
 import org.apache.avro.generic.GenericData;
@@ -46,10 +50,6 @@ import com.google.protobuf.Descriptors.FileDescriptor;
 import com.google.protobuf.DescriptorProtos.FileOptions;
 
 import org.apache.avro.util.ClassUtils;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.JsonNodeFactory;
 
 /** Utilities for serializing Protobuf data in Avro format. */
 public class ProtobufData extends GenericData {
